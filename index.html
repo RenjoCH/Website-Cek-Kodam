@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cek Khodam</title>
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font-family: "Courier New", Courier, monospace;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+      }
+      .bg {
+        /* The image used */
+        background-image: url("https://i.pinimg.com/736x/bd/ba/23/bdba233e919c529cab9d84a3cd3dcacc.jpg");
+        /* Full height */
+        height: 100%;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* Add the blur effect */
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+        position: fixed;
+        width: 100%;
+        z-index: -1;
+      }
+      .container {
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        text-align: center;
+        border: 2px solid #000;
+        border-image: linear-gradient(45deg, #000, #fff) 1;
+      }
+      .content h2 {
+        margin-top: 0;
+        font-size: 28px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      .content p {
+        margin: 15px 0;
+        font-size: 18px;
+      }
+      #nameInput {
+        width: 90%;
+        padding: 12px;
+        margin: 12px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 18px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+      }
+      button {
+        background-color: #d63031;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+      button:hover {
+        background-color: #d63031;
+        transform: scale(1.05);
+      }
+      .game-link {
+        margin-top: 25px;
+        font-size: 16px;
+      }
+      .game-link a {
+        color: #d63031;
+        text-decoration: none;
+      }
+      .game-link a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg"></div>
+    <div class="container">
+      <div class="content">
+        <h2>Cek Khodam</h2>
+        <p>Cek khodam yang ada di dalam diri kamu</p>
+        <input
+          type="text"
+          id="nameInput"
+          placeholder="Tulis nama kamu di sini"
+        />
+        <button onclick="checkKhodam()">CHECK</button>
+        <p class="game-link">
+          Khodam tersebut: <a id="khodamLink" href="#">Tidak ada</a>
+        </p>
+      </div>
+    </div>
+    <script>
+      function checkKhodam() {
+        const name = document.getElementById("nameInput").value;
+        if (name) {
+          const khodams = [
+            "Tidak Ada",
+            "Singa",
+            "Macan",
+            "Kerbau",
+            "Ular",
+            "Kancil",
+          ];
+          const randomKhodam =
+            khodams[Math.floor(Math.random() * khodams.length)];
+          document.getElementById("khodamLink").innerText = randomKhodam;
+        } else {
+          alert("Silakan masukkan nama Anda.");
+        }
+      }
+    </script>
+  </body>
+</html>
